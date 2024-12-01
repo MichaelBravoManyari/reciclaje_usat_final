@@ -1,0 +1,24 @@
+<script>
+    $("#vehicle_id").change(function() {
+        var vehicle_id = $(this).val();
+
+        // Llama al endpoint para obtener ocupantes
+        $.ajax({
+            url: "{{ route('admin.ocuppantsbyvehicle', '_id') }}".replace('_id', vehicle_id),
+            type: "GET",
+            datatype: "JSON",
+            contentType: "application/json",
+            success: function(response) {
+                // Limpia y actualiza el dropdown de ocupantes
+                $("#user_id").empty();
+                $.each(response, function(key, value) {
+                    $("#user_id").append("<option value='" + value.id + "'>" + value.name +
+                        "</option>");
+                });
+            },
+            error: function(xhr) {
+                console.error('Error al cargar ocupantes:', xhr.responseText);
+            }
+        });
+    });
+</script>
