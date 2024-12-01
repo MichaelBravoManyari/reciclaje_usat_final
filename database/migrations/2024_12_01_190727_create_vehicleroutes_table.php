@@ -19,9 +19,13 @@ return new class extends Migration
             $table->unsignedBigInteger("vehicle_id");
             $table->unsignedBigInteger("route_id");
             $table->unsignedBigInteger("schedule_id");
+            $table->unsignedBigInteger('routestatus_id');
+            $table->unsignedBigInteger('programming_id');
             $table->foreign("vehicle_id")->references("id")->on("vehicles");
             $table->foreign("route_id")->references("id")->on("routes");
             $table->foreign("schedule_id")->references("id")->on("schedules");
+            $table->foreign('routestatus_id')->references('id')->on('routestatus');
+            $table->foreign('programming_id')->references('id')->on('programmings');
             $table->timestamps();
         });
     }
