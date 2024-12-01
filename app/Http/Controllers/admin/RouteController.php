@@ -34,6 +34,9 @@ class RouteController extends Controller
                                     ' . csrf_field() . method_field('DELETE') . '
                                     <button type="submit" class="dropdown-item"><i class="fas fa-trash"></i> Eliminar</button>
                                 </form>
+                                <a href="' . route('admin.vehicleroutes.index') . '?route_id=' . $route->id . '" class="dropdown-item">
+                                    <i class="fas fa-car"></i> Ver Vehículos
+                                </a>
                             </div>
                         </div>';
                 })

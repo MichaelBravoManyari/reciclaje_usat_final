@@ -1,0 +1,151 @@
+@extends('adminlte::page')
+
+@section('title', 'ReciclaUSAT')
+
+@section('content')
+    <div class="p-2"></div>
+    <div class="card">
+        <div class="card-header">
+            <button class="btn btn-success float-right" id="btnNuevo" data-route-id={{ $route->id }}><i class="fas fa-plus"></i> Nuevo</button>
+            <h3>Vehiculos en la ruta: {{ $route->name }}</h3>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-striped" id="datatable">
+                <thead>
+                    <tr>
+                        <th>VEHICULO</th>
+                        <th>FECHA</th>
+                        <th>HORA</th>
+                        <th>HORARIO</th>
+                        <th>COORDENADAS</th>
+                        <th>DESCRIPCION</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a href="{{ route('admin.routes.index') }}" class="btn btn-danger float-right"><i class="fas fa-chevron-left"></i> Retornar</a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Formulario de la zona</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="formModalMap" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Formulario de la zona</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+            </div>
+        </div>
+    </div>
+@stop
+
+@section('js')
+    <script>
+        $(document).ready(function() {
+            var routeId = "{{ $route->id }}";
+
+            var table = $('#datatable').DataTable({
+                "ajax": "{{ route('admin.vehicleroutes.index') }}",
+                "data": { route_id: routeId },
+                "columns": [{
+                        "data": "vehicle_name",
+                    },
+                    {
+                        "data": "date_route",
+                    },
+                    {
+                        "data": "time_route",
+                    },
+                    {
+                        "data": "schedule_name",
+                    },
+                    {
+                        "data": "coords",
+                        "orderable": false,
+                        "searchable": false,
+                    },
+                    {
+                        "data": "description",
+                    },
+                    {
+                        "data": "actions",
+                        "orderable": false,
+                        "searchable": false,
+                    }
+                ],
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                }
+            });
+        });
+
+        $('#btnNuevo').click(function() {
+            var routeId = $(this).data('route-id');
+
+            $.ajax({
+                url: "{{ route('admin.vehicleroutes.create') }}",
+                type: "GET",
+                data: {
+                    route_id: routeId
+                },
+                success: function(response) {
+                    $("#formModal #exampleModalLabel").html("Agregar vehiculo a la ruta");
+                    $("#formModal .modal-body").html(response);
+                    $("#formModal").modal("show");
+
+                    $("#formModal form").on("submit", function(e) {
+                        e.preventDefault();
+
+                        var form = $(this);
+                        var formData = new FormData(this);
+
+                        $.ajax({
+                            url: form.attr('action'),
+                            type: form.attr('method'),
+                            data: formData,
+                            processData: false,
+                            contentType: false,
+                            success: function(response) {
+                                $("#formModal").modal("hide");
+                                Swal.fire('Proceso existoso', response.message,
+                                    'success');
+                            },
+                            error: function(xhr) {
+                                var response = xhr.responseJSON;
+                                Swal.fire('Error', response.message, 'error');
+                            }
+                        })
+                    })
+                }
+            });
+        });
+    </script>
+@endsection

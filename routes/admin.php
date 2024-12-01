@@ -18,6 +18,7 @@ use App\Http\Controllers\admin\VehiclecolorController;
 use App\Http\Controllers\admin\VehicleController;
 use App\Http\Controllers\admin\VehicleimagesController;
 use App\Http\Controllers\admin\VehicleocuppantsController;
+use App\Http\Controllers\admin\VehiclerouteController;
 use App\Http\Controllers\admin\VehicletypeController;
 use App\Http\Controllers\admin\ZoneController;
 use App\Http\Controllers\admin\ZonecoordController;
@@ -47,6 +48,7 @@ Route::resource('maintenanceschedules', MaintenanceschedulesController::class)->
 Route::resource('schedulesdates', SchedulesdatesController::class)->names('admin.schedulesdates');
 Route::resource('routes', RouteController::class)->names('admin.routes');
 Route::resource('routezones', RoutezoneController::class)->names('admin.routezones');
+Route::resource('vehicleroutes', VehiclerouteController::class)->names('admin.vehicleroutes');
 Route::get('maintenanceschedules/ocuppantsbyvehicle/{vehicle_id}', [MaintenanceschedulesController::class, 'ocuppantsByVehicle'])->name('admin.ocuppantsbyvehicle');
 Route::get('routes/showeditcoordinatesform/{route_id}/{type}', [RouteController::class, 'showEditCoordinatesForm'])->name('admin.showeditcoordinatesform');
 Route::post('routes/updateroutestartandendcoords', [RouteController::class, 'updateRouteStartAndEndCoords'])->name('admin.updateroutestartandendcoords');
