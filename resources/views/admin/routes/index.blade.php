@@ -17,7 +17,6 @@
                         <th>NOMBRE</th>
                         <th>ESTADO</th>
                         <th>COORDENADAS</th>
-                        <th>ACCIONES</th>
                         <th width="10"></th>
                     </tr>
                 </thead>

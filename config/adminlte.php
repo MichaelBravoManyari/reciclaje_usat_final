@@ -319,10 +319,10 @@ return [
             'url' => 'admin/blog',
             'can' => 'manage-blog',
         ],
-        ['header' => 'GESTIÓN DE VEHÍCULOS'],
+        //['header' => 'GESTIÓN DE VEHÍCULOS'],
         [
-            'text' => 'Datos',
-            'icon' => 'fas fa-stream',
+            'text' => 'GESTIÓN DE VEHÍCULOS',
+            'icon' => 'fas fa-truck-moving',
             'submenu' => [
                 [
                     'text' => 'Marcas',
@@ -353,10 +353,10 @@ return [
             ]
         ],
         
-        ['header' => 'GESTIÓN DE PERSONAL'],
+        //['header' => 'GESTIÓN DE PERSONAL'],
         [
-            'text' => 'Datos',
-            'icon' => 'fas fa-stream',
+            'text' => 'GESTIÓN DE PERSONAL',
+            'icon' => 'fas fa-users-cog',
             'submenu' => [
                 [
                     'text' => 'Tipos',
@@ -376,10 +376,10 @@ return [
             ]
         ],
 
-        ['header' => 'GESTIÓN DE RUTAS'],
+        //['header' => 'GESTIÓN DE RUTAS'],
         [
-            'text' => 'Datos',
-            'icon' => 'fas fa-stream',
+            'text' => 'GESTIÓN DE RUTAS',
+            'icon' => 'fas fa-map-marked-alt',
             'submenu' => [
                 [
                     'text' => 'Sectores',
@@ -399,8 +399,8 @@ return [
             ]
         ],
         [
-            'text' => 'Programación',
-            'icon' => 'fas fa-stream',
+            'text' => 'PROGRAMACIÓN',
+            'icon' => 'fas fa-calendar-check',
             'submenu' => [
                 [
                     'text' => 'Horarios',
@@ -415,10 +415,10 @@ return [
             ]
         ],
 
-        ['header' => 'GESTIÓN DE MANTENIMIENTO'],
+        //['header' => 'GESTIÓN DE MANTENIMIENTO'],
         [
-            'text' => 'Datos',
-            'icon' => 'fas fa-stream',
+            'text' => 'GESTIÓN DE MANTENIMIENTO',
+            'icon' => 'fas fa-wrench',
             'submenu' => [
                 [
                     'text' => 'Mantenimiento',
