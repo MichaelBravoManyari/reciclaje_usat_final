@@ -73,8 +73,12 @@
             var routeId = "{{ $route->id }}";
 
             var table = $('#datatable').DataTable({
-                "ajax": "{{ route('admin.vehicleroutes.index') }}",
-                "data": { route_id: routeId },
+                "ajax": {
+                    "url": "{{ route('admin.vehicleroutes.index') }}",
+                    "data": function(d) {
+                        d.route_id = routeId;
+                    }
+                },
                 "columns": [{
                         "data": "vehicle_name",
                     },
@@ -135,6 +139,7 @@
                             contentType: false,
                             success: function(response) {
                                 $("#formModal").modal("hide");
+                                refreshTable();
                                 Swal.fire('Proceso existoso', response.message,
                                     'success');
                             },
@@ -147,5 +152,93 @@
                 }
             });
         });
+
+        $(document).on('click', '.btnEditar', function() {
+            var id = $(this).attr("id");
+
+            $.ajax({
+                url: "{{ route('admin.vehicleroutes.edit', 'id') }}".replace('id', id),
+                type: "GET",
+                success: function(response) {
+                    $("#formModal #exampleModalLabel").html("Modificar la ruta del vehiculo");
+                    $("#formModal .modal-body").html(response);
+                    $("#formModal").modal("show");
+                    $("#formModal form").on("submit", function(e) {
+                        e.preventDefault();
+
+                        var form = $(this);
+                        var formData = new FormData(this);
+
+                        $.ajax({
+                            url: form.attr('action'),
+                            type: form.attr('method'),
+                            data: formData,
+                            processData: false,
+                            contentType: false,
+                            success: function(response) {
+                                $("#formModal").modal("hide");
+                                refreshTable();
+                                Swal.fire('Proceso existoso', response.message,
+                                    'success');
+                            },
+                            error: function(xhr) {
+                                var response = xhr.responseJSON;
+                                Swal.fire('Error', response.message, 'error');
+                            }
+                        })
+
+                    })
+                }
+            });
+        });
+
+        $(document).on('submit', '.frmEliminar', function(e) {
+            e.preventDefault();
+            var form = $(this);
+            Swal.fire({
+                title: "Está seguro de eliminar?",
+                text: "Está acción no se puede revertir!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Si, eliminar!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: form.attr('action'),
+                        type: form.attr('method'),
+                        data: form.serialize(),
+                        success: function(response) {
+                            refreshTable();
+                            Swal.fire('Proceso existoso', response.message, 'success');
+                        },
+                        error: function(xhr) {
+                            var response = xhr.responseJSON;
+                            Swal.fire('Error', response.message, 'error');
+                        }
+                    });
+                }
+            });
+        });
+
+        $(document).on('click', '.btnMap', function() {
+            var id = $(this).attr("id");
+
+            $.ajax({
+                url: "{{ route('admin.routepaths.show', 'id') }}".replace('id', id),
+                type: "GET",
+                success: function(response) {
+                    $("#formModalMap #exampleModalLabel").html("Mapa de la ruta del vehiculo");
+                    $("#formModalMap .modal-body").html(response);
+                    $("#formModalMap").modal("show");                  
+                }
+            });
+        })
+
+        function refreshTable() {
+            var table = $('#datatable').DataTable();
+            table.ajax.reload(null, false);
+        }
     </script>
 @endsection

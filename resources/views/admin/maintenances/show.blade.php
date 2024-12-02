@@ -183,7 +183,7 @@
                     })
                 }
             });
-        })
+        });
 
         $(document).on('submit', '.frmEliminar', function(e) {
             e.preventDefault();

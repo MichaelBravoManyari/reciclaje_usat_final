@@ -171,7 +171,6 @@ class RouteController extends Controller
             $longitude = $route->longitude_start;
         }
         return view('admin.routes.editcoords', compact('latitude', 'longitude', 'type', 'route_id'));
-        //return response()->json(['message' => 'Error al eliminar la ruta, porque tiene coordenadas asignadas.' . $latitude.' ' . $longitude . ' ' . $type], 500);
     }
 
     public function updateRouteStartAndEndCoords(Request $request)
@@ -193,5 +192,25 @@ class RouteController extends Controller
         } catch (\Throwable $th) {
             return response()->json(['message' => 'Error al registrar la coordenada: ' . $th->getMessage()], 500);
         }
+    }
+
+    public function showRouteMap(string $route_id)
+    {
+        $routecoords = DB::table('routes')
+            ->select('latitud_start', 'longitude_start', 'latitude_end', 'longitude_end')
+            ->where('id', $route_id)
+            ->first();
+
+        $zoneIds = DB::table('routezones as rz')
+            ->where('rz.route_id', $route_id)
+            ->pluck('rz.zone_id');
+        
+        $zone_coords = DB::table('zonecoords as zc')
+            ->join('zones as z', 'zc.zone_id', '=', 'z.id')
+            ->whereIn('zc.zone_id', $zoneIds)
+            ->select('zc.latitude as lat', 'zc.longitude as lng', 'zc.zone_id', 'z.name as zone_name')
+            ->get();
+
+        return view('admin.routes.showmap', compact('routecoords', 'zone_coords'));
     }
 }

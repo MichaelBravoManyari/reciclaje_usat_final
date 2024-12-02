@@ -57,7 +57,6 @@
                                     <button type="button" class="btn btn-success btn-sm" onclick="search()"><i
                                             class="fas fa-search"></i></button>
                                 </div>
-
                             </td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Programación">
