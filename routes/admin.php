@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\MaintenanceschedulesController;
 use App\Http\Controllers\admin\MaintenancesController;
 use App\Http\Controllers\admin\OcuppantsController;
 use App\Http\Controllers\admin\RouteController;
+use App\Http\Controllers\admin\RoutepathController;
 use App\Http\Controllers\admin\RoutezoneController;
 use App\Http\Controllers\admin\SchedulesController;
 use App\Http\Controllers\admin\SchedulesdatesController;
@@ -49,6 +50,8 @@ Route::resource('schedulesdates', SchedulesdatesController::class)->names('admin
 Route::resource('routes', RouteController::class)->names('admin.routes');
 Route::resource('routezones', RoutezoneController::class)->names('admin.routezones');
 Route::resource('vehicleroutes', VehiclerouteController::class)->names('admin.vehicleroutes');
+Route::resource('routepaths', RoutepathController::class)->names('admin.routepaths');
 Route::get('maintenanceschedules/ocuppantsbyvehicle/{vehicle_id}', [MaintenanceschedulesController::class, 'ocuppantsByVehicle'])->name('admin.ocuppantsbyvehicle');
 Route::get('routes/showeditcoordinatesform/{route_id}/{type}', [RouteController::class, 'showEditCoordinatesForm'])->name('admin.showeditcoordinatesform');
 Route::post('routes/updateroutestartandendcoords', [RouteController::class, 'updateRouteStartAndEndCoords'])->name('admin.updateroutestartandendcoords');
+Route::get('routes/showroutemap/{route_id}', [RouteController::class, 'showRouteMap'])->name('admin.showroutemap');

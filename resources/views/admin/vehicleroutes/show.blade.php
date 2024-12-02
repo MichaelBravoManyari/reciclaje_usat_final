@@ -6,27 +6,35 @@
     <div class="p-2"></div>
     <div class="card">
         <div class="card-header">
-            <button class="btn btn-success float-right" id="btnNuevo" data-id={{ $zone->id }}><i class="fas fa-plus"></i>
+            <button class="btn btn-success float-right" id="btnNuevo" data-id={{ $vehicleroute->vehicleroute_id }}><i class="fas fa-plus"></i>
                 Agregar</button>
 
-
-            <h3>Perímetro de la Zona</h3>
+            <h3>Agregar coordenadas a la ruta</h3>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-4">
                     <div class="card">
                         <div class="card-body">
-                            <label for="">Zona:</label>
-                            <p>{{ $zone->name }}</p>
-                            <label for="">Sector:</label>
-                            <p>{{ $zone->sector }}</p>
-                            <label for="">Área:</label>
-                            <p>{{ $zone->area }} metros</p>
+                            <label for="">Vehiculo:</label>
+                            <p>{{ $vehicleroute->vehicle_name }}</p>
+                            <label for="">Fecha:</label>
+                            <p>{{ $vehicleroute->date_route }}</p>
+                            <label for="">Hora:</label>
+                            <p>{{ $vehicleroute->time_route }}</p>
+                            <label for="">Horario:</label>
+                            <p>{{ $vehicleroute->schedule_name }}</p>
                             <label for="">Descripción:</label>
-                            <p>{{ $zone->description }}</p>
+                            <p>{{ $vehicleroute->description }}</p>
+                            <label for="">Zonas por donde pasa:</label>
+                            @if ($zone_names->isNotEmpty())
+                                @foreach ($zone_names as $zone)
+                                    <p>{{ $zone->zone_name }}</p>
+                                @endforeach
+                            @else
+                                <p>No hay zonas registradas para esta ruta.</p>
+                            @endif
                         </div>
-
                     </div>
                 </div>
                 <div class="col-8">
@@ -39,6 +47,7 @@
                                         <th>LONGITUD</th>
                                         <th></th>
                                     </tr>
+
                                 </thead>
                             </table>
                         </div>
@@ -48,7 +57,7 @@
             </div>
         </div>
         <div class="card-footer">
-            <a href="{{ route('admin.zones.index') }}" class="btn btn-danger float-right"><i class="fas fa-chevron-left"></i> Retornar</a>
+            <a href="{{ route('admin.vehicleroutes.index', ['route_id' => $vehicleroute->route_id]) }}" class="btn btn-danger float-right"><i class="fas fa-chevron-left"></i> Retornar</a>
         </div>
     </div>
     <!-- Modal -->
@@ -72,21 +81,9 @@
 
 @section('js')
     <script>
-        /* $("#btnNuevo").click(function() {
-                                                        var id = $(this).attr('data-id');
-                                                        $.ajax({
-                                                            url: "{{ route('admin.zonecoords.edit', '_id') }}".replace('_id', id),
-                                                            type: "GET",
-                                                            success: function(response) {
-                                                                $("#formModal .modal-body").html(response);
-                                                                $("#formModal").modal("show");
-                                                            }
-                                                        })
-                                                    })*/
-
         $(document).ready(function() {
             var table = $('#datatable').DataTable({
-                "ajax": "{{ route('admin.zones.show', $zone->id) }}", // La ruta que llama al controlador vía AJAX
+                "ajax": "{{ route('admin.vehicleroutes.show', $vehicleroute->vehicleroute_id) }}",
                 "columns": [{
                         "data": "latitude",
                         "orderable": false,
@@ -102,17 +99,6 @@
                         "orderable": false,
                         "searchable": false,
                     }
-                    /*{
-                        "data": "edit",
-                        "orderable": false,
-                        "searchable": false,
-                    },
-                    {
-                        "data": "delete",
-                        "orderable": false,
-                        "searchable": false,
-                    }*/
-
                 ],
                 "language": {
                     "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
@@ -123,7 +109,7 @@
         $('#btnNuevo').click(function() {
             var id = $(this).attr('data-id');
             $.ajax({
-                url: "{{ route('admin.zonecoords.edit', '_id') }}".replace('_id', id),
+                url: "{{ route('admin.routepaths.edit', '_id') }}".replace('_id', id),
                 type: "GET",
                 success: function(response) {
                     $("#formModal #exampleModalLabel").html("Agregar coordenada");
@@ -192,14 +178,7 @@
 
         function refreshTable() {
             var table = $('#datatable').DataTable();
-            table.ajax.reload(null, false); // Recargar datos sin perder la paginación
+            table.ajax.reload(null, false);
         }
     </script>
 @endsection
-
-
-
-@section('css')
-    {{-- Add here extra stylesheets --}}
-    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
-@stop

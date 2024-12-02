@@ -206,6 +206,20 @@
             });
         });
 
+        $(document).on('click', '.btnMap', function() {
+            var id = $(this).attr("id");
+
+            $.ajax({
+                url: "{{ route('admin.showroutemap', 'id') }}".replace('id', id),
+                type: "GET",
+                success: function(response) {
+                    $("#formModalMap #exampleModalLabel").html("Mapa de la ruta del vehiculo");
+                    $("#formModalMap .modal-body").html(response);
+                    $("#formModalMap").modal("show");                  
+                }
+            });
+        })
+
         function refreshTable() {
             var table = $('#datatable').DataTable();
             table.ajax.reload(null, false);
