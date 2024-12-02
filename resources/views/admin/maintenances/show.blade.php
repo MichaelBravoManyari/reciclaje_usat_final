@@ -19,7 +19,7 @@
                 <p for=""><strong>Fecha final:</strong> {{ $maintenance->lastdate }} </p>
             </div>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-striped" id="datatable">
                 <thead>
                     <tr>

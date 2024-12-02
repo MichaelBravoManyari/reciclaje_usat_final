@@ -409,7 +409,7 @@ return [
                 ],
                 [
                     'text' => 'Programación de Rutas',
-                    'url' => 'admin/settings',
+                    'route' => 'admin.programming.index',
                     'icon' => 'fas fa-calendar-alt',
                 ],
             ]

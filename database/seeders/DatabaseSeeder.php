@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UsertypeSeeder::class);
         $this->call(MaintenancetypeSeeder::class);
         $this->call(MaintenancestatuSeeder::class);
+        $this->call(RouteStatusSeeder::class);
         */
     }
 }
