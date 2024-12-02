@@ -8,7 +8,7 @@
             <th>HORARIO</th>
             <th>ESTADO</th>
             <th>DESCRIPCIÓN</th>
-            <th width=20></th>
+            <th width=10></th>
         </tr>
     </thead>
     <tbody>
@@ -27,10 +27,8 @@
                             class="fa fa-edit"></i></button>
                     <?php endif; ?>
                 </td>
-                </form>
             </tr>
         @endforeach
-
     </tbody>
 </table>
 
@@ -38,29 +36,17 @@
     $('#datatable').DataTable({
         "language": {
             "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-        }/* ,
-        "columnDefs": [
-        {
-            "targets": [7],
-            "orderable": false,
-            "searchable": false
         }
-    ] */
     });
 
-    $(document).on('click', '.btnEditar', function() {
-        var id = $(this).attr("id");
-
+    $(".btnEditar").click(function() {
+        var id = $(this).attr('id');
         $.ajax({
-            url: "{{ route('admin.programming.edit', 'id') }}".replace('id',
-                id)
+            url: "{{ route('admin.programming.edit', '_id') }}".replace('_id', id),
             type: "GET",
             success: function(response) {
-                $("#formModal #exampleModalLabel").html(
-                    "Modificar Programación");
-                $("#formModal .modal-body").html(
-                    response);
-                $("#formModal").modal("show");
+                $('#formModal .modal-body').html(response);
+                $('#formModal').modal('show');
             },
             error: function(xhr) {
                 var response = xhr.responseJSON;

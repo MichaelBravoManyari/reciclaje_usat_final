@@ -53,6 +53,7 @@
 @section('css')
     @vite(['resources/css/app.css'])
     @livewireStyles
+    <link rel="stylesheet" href="{{ asset('dist/custom.css') }}">
 @stop
 @section('js')
     @livewireScripts

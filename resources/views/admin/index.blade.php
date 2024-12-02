@@ -3,7 +3,7 @@
 @section('title', 'ReciclaUSAT')
 
 @section('content_header')
-    {{-- <h1>ReciclaUSAT</h1> --}}
+    
 @stop
 
 @section('content')
@@ -44,4 +44,6 @@
             height: 560px;
         }
     </style>
+    
+    <link rel="stylesheet" href="{{ asset('dist/custom.css') }}">
 @stop

@@ -30,19 +30,9 @@
     </div>
 @stop
 
-{{--$('#btnNuevo').click(function() {
-    var url = window.location.href = "{{ route('admin.ocuppants.index') }}";
-
-    $.ajax({
-        url: url,
-        success: function(response) {
-            console.log("Exitoso");
-        },
-        error: function(xhr, status, error) {
-            Swal.fire('Error', 'Hubo un problema al procesar la solicitud.', 'error');
-        }
-    });
-});--}}
+@section('css')
+    <link rel="stylesheet" href="{{ asset('dist/custom.css') }}">
+@stop
 
 @section('js')
     <script>

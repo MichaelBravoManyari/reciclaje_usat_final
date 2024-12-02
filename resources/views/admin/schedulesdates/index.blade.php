@@ -33,6 +33,9 @@
     </div>
 @stop
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('dist/custom.css') }}">
+@stop
 
 @section('js')
     <script>
