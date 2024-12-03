@@ -9,5 +9,10 @@ class Vehicleroute extends Model
 {
     use HasFactory;
 
-    protected $guarded=[];
+    protected $guarded = [];
+
+    public function programming()
+    {
+        return $this->belongsTo(Programming::class, 'programming_id');
+    }
 }

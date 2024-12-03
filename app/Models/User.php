@@ -23,7 +23,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $guarded=[];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -55,11 +55,33 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-
     public function usertype()
     {
         return $this->belongsTo(Usertype::class, 'usertype_id', 'id');
     }
 
-    protected $table = 'users';    
+    protected $table = 'users';
+
+    public function adminlte_image()
+    {
+        // Verificar si el usuario tiene una imagen de perfil
+        if ($this->profile_photo_path) {
+            // Si existe una imagen, retornamos la URL completa
+            return asset($this->profile_photo_path);
+        }
+
+        return asset('storage/user_logo/no_image.png');
+        //return 'https://picsum.photos/300/300'; // O cualquier imagen predeterminada
+    }
+
+
+    public function adminlte_desc()
+    {
+        $usertype = auth()->user()->usertype;
+        if ($usertype) {
+            return $usertype->name;
+        }
+
+        return "Sin asignar tipo de usuario";
+    }
 }

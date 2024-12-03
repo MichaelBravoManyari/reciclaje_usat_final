@@ -32,7 +32,7 @@ class MaintenancesController extends Controller
                                 <i class="fas fa-bars"></i>                        
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <button class="dropdown-item btnEditar" id="' . $maintenance->id . '"><i class="fas fa-edit"></i>  Editar</button>
+                                <button class="dropdown-item btnEditar" id="' . $maintenance->id . '"><i class="fas fa-edit"></i> Editar</button>
                                 <form action="' . route('admin.maintenances.destroy', $maintenance->id) . '" method="POST" class="frmEliminar d-inline">
                                     ' . csrf_field() . method_field('DELETE') . '
                                     <button type="submit" class="dropdown-item"><i class="fas fa-trash"></i> Eliminar</button>

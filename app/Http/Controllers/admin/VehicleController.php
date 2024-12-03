@@ -69,24 +69,7 @@ class VehicleController extends Controller
         }
     }
 
-    /*
-    ->addColumn('occupants', function ($vehicle) {
-        //return '<a href="' . route('vehicles.occupants', $vehicle->id) . '" class="btn btn-success btn-sm"><i class="fas fa-people-arrows"></i>&nbsp;&nbsp;(0)</a>';
-        return '<button class="btn btn-success btn-sm btnOccupants" id="' . $vehicle->id . '"><i class="fas fa-people-arrows"></i>&nbsp;&nbsp;(0)</button>';
-    })
 
-    if ($row->status !== 1) {
-        return '<button class="btn btn-secondary btn-sm" disabled>
-        <i class="fas fa-people-arrows"></i>&nbsp;&nbsp;(0)
-        </button>';
-    }
-    ->addColumn('occupants', function ($row) {
-        $url = route('vehicles.occupants', ['id' => $row->id]);
-        return '<a href="' . $url . '" class="btn btn-success btn-sm">
-         <i class="fas fa-people-arrows"></i>&nbsp;&nbsp;(0)
-         </a>';
-        })
-     */
     public function create()
     {
 

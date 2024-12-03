@@ -15,7 +15,8 @@ use DatePeriod;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Yajra\DataTables\Facades\DataTables;
+
+use function Laravel\Prompts\select;
 
 class ProgrammingsController extends Controller
 {
@@ -106,7 +107,7 @@ class ProgrammingsController extends Controller
         }
     } */
 
-    public function store(Request $request)
+    /* public function store(Request $request)
     {
         $request->validate(
             [
@@ -149,6 +150,105 @@ class ProgrammingsController extends Controller
 
                 $programming_id = $existingProgrammes->first()->programming_id;
 
+                foreach ($period as $p) {
+                    $date = $p->format("Y-m-d");
+
+                    if (!in_array($date, $existingDates)) {
+                        Vehicleroute::create([
+                            'date_route' => $date,
+                            'time_route' => $request->time_route,
+                            'description' => '',
+                            'vehicle_id' => $request->vehicle_id,
+                            'route_id' => $request->route_id,
+                            'routestatus_id' => 1,
+                            'programming_id' => $programming_id,
+                            'schedule_id' => $request->schedule_id
+                        ]);
+                    }
+                }
+
+                return response()->json(['message' => 'Fechas faltantes registradas correctamente'], 200);
+            } else {
+                $programming = Programming::create([
+                    'startdate' => $request->startdate,
+                    'lastdate' => $request->lastdate,
+                ]);
+
+                $begin = new DateTime($request->startdate);
+                $last = new DateTime($request->lastdate);
+                $interval = DateInterval::createFromDateString('1 day');
+                $period = new DatePeriod($begin, $interval, $last->modify('+1 day'));
+
+                foreach ($period as $p) {
+                    Vehicleroute::create([
+                        'date_route' => $p->format("Y-m-d"),
+                        'time_route' => $request->time_route,
+                        'description' => '',
+                        'vehicle_id' => $request->vehicle_id,
+                        'route_id' => $request->route_id,
+                        'routestatus_id' => 1,
+                        'programming_id' => $programming->id,
+                        'schedule_id' => $request->schedule_id
+                    ]);
+                }
+
+                return response()->json(['message' => 'Programación registrada exitosamente'], 200);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['message' => 'Error: ' . $th->getMessage()], 500);
+        }
+    } */
+
+    public function store(Request $request)
+    {
+        $request->validate(
+            [
+                'startdate' => 'required|date',
+                'lastdate' => 'required|date|after_or_equal:startdate',
+                'time_route' => 'required|date_format:H:i',
+            ],
+            [
+                'startdate.required' => 'La fecha de inicio es obligatoria.',
+                'lastdate.required' => 'La fecha de fin es obligatoria.',
+                'lastdate.after_or_equal' => 'La fecha de fin debe ser igual o posterior a la fecha de inicio.',
+            ]
+        );
+
+        try {
+            $existingProgrammes = Vehicleroute::where('vehicle_id', $request->vehicle_id)
+                ->where('route_id', $request->route_id)
+                ->whereBetween('date_route', [$request->startdate, $request->lastdate])
+                ->get();
+
+            if ($existingProgrammes->count() > 0) {
+                $existingDates = $existingProgrammes->pluck('date_route')->toArray();
+
+                $start = new DateTime($request->startdate);
+                $end = new DateTime($request->lastdate);
+                $interval = DateInterval::createFromDateString('1 day');
+                $period = new DatePeriod($start, $interval, $end->modify('+1 day'));
+
+                $allDatesOccupied = true;
+                foreach ($period as $date) {
+                    if (!in_array($date->format("Y-m-d"), $existingDates)) {
+                        $allDatesOccupied = false;
+                        break;
+                    }
+                }
+
+                if ($allDatesOccupied) {
+                    return response()->json(['message' => 'Ya existe una programación del vehículo y ruta en los días seleccionados'], 400);
+                }
+
+                $programming_id = $existingProgrammes->first()->programming_id;
+                $programming = Programming::find($programming_id);
+                if ($programming) {
+                    $programming->startdate = $request->startdate;
+                    $programming->lastdate = $request->lastdate;
+                    $programming->save();
+                }
+
+                // Agregar las fechas faltantes
                 foreach ($period as $p) {
                     $date = $p->format("Y-m-d");
 
@@ -429,69 +529,4 @@ class ProgrammingsController extends Controller
             return response()->json(['message' => 'Error: ' . $th->getMessage()], 500);
         }
     }
-
-    public function massEdit(Request $request)
-    {
-        try {
-            $request->validate(
-                [
-                    'startdate' => 'required|date',
-                    'lastdate' => 'required|date|after_or_equal:startdate',
-                ],
-                [
-                    'startdate.required' => 'La fecha de inicio es obligatoria.',
-                    'lastdate.required' => 'La fecha de fin es obligatoria.',
-                    'lastdate.after_or_equal' => 'La fecha de fin debe ser igual o posterior a la fecha de inicio.',
-                ]
-            );
-
-            $programminglists = collect(DB::select('CALL sp_searchmassedition(?, ?, ?, ?)', [
-                $request->vehicle_id,
-                $request->route_id,
-                $request->startdate,
-                $request->lastdate
-            ]));
-
-            foreach ($programminglists as $programminglist) {
-                $programminglist->time_route = Carbon::parse($programminglist->time_route)->format('H:i');
-            }
-
-            return response()->json([
-                'programminglists' => $programminglists
-            ]);
-        } catch (\Throwable $th) {
-            return response()->json(['message' => '' . $th->getMessage()], 500);
-        }
-    }
-
-
-
-    /*
-public function massUpdate(Request $request)
-{
-    // Valida los datos recibidos
-    $request->validate([
-        'vehicle_id' => 'required|exists:vehicles,id',
-        'route_id' => 'required|exists:routes,id',
-        'startdate' => 'required|date',
-        'lastdate' => 'required|date',
-    ]);
-
-    // Aquí puedes hacer la lógica de actualización masiva
-    // Por ejemplo, actualizar todas las programaciones con los valores recibidos
-
-    Vehicleroute::where('vehicle_id', $request->vehicle_id)
-                ->where('route_id', $request->route_id)
-                ->whereBetween('date_route', [$request->startdate, $request->lastdate])
-                ->update([
-                    'vehicle_id' => $request->vehicle_id,
-                    'route_id' => $request->route_id,
-                    'date_route' => $request->startdate,  // o la lógica que necesites
-                    // Agrega más campos que quieras actualizar
-                ]);
-
-    return redirect()->back()->with('success', 'Programaciones actualizadas correctamente.');
-}
-
- */
 }

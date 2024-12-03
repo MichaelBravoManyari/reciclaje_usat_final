@@ -9,5 +9,10 @@ class Programming extends Model
 {
     use HasFactory;
 
-    protected $guarded=[];
+    protected $guarded = [];
+
+    public function vehicleroutes()
+    {
+        return $this->hasMany(Vehicleroute::class, 'programming_id');
+    }
 }

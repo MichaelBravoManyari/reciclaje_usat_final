@@ -18,6 +18,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>LOGO</th>
                         <th>NOMBRE</th>
                         <th>DNI</th>
                         <th>LICENCIA</th>
@@ -62,6 +63,11 @@
                 "ajax": "{{ route('admin.users.index') }}", // La ruta que llama al controlador vía AJAX
                 "columns": [{
                         "data": "id",
+                    },
+                    {
+                        "data": "logo",
+                        "orderable": false,
+                        "searchable": false,
                     },
                     {
                         "data": "name",

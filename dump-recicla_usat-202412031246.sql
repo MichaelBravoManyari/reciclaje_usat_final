@@ -382,7 +382,7 @@ CREATE TABLE `programmings` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -391,6 +391,7 @@ CREATE TABLE `programmings` (
 
 LOCK TABLES `programmings` WRITE;
 /*!40000 ALTER TABLE `programmings` DISABLE KEYS */;
+INSERT INTO `programmings` VALUES (4,'2024-12-01','2024-12-06','2024-12-02 02:16:06','2024-12-02 02:16:06'),(5,'2024-12-06','2024-12-08','2024-12-02 02:19:38','2024-12-02 02:19:38'),(6,'2024-12-09','2024-12-13','2024-12-02 05:09:42','2024-12-02 05:09:42'),(7,'2024-12-14','2024-12-15','2024-12-02 05:12:06','2024-12-02 05:12:06'),(8,'2024-11-25','2024-11-29','2024-12-02 05:16:37','2024-12-02 05:16:37'),(9,'2024-11-30','2024-12-01','2024-12-02 05:32:11','2024-12-02 05:32:11'),(10,'2024-11-23','2024-11-24','2024-12-02 05:37:15','2024-12-02 05:37:15'),(11,'2024-11-25','2024-11-25','2024-12-02 08:07:00','2024-12-02 08:07:00'),(12,'2024-11-01','2024-11-02','2024-12-02 08:44:46','2024-12-02 08:44:46'),(13,'2024-11-03','2024-11-11','2024-12-02 08:46:55','2024-12-02 08:46:55'),(14,'2024-10-18','2024-10-28','2024-12-02 08:59:38','2024-12-02 08:59:38'),(16,'2024-01-01','2024-01-08','2024-12-02 09:34:06','2024-12-02 09:34:06'),(17,'2024-10-01','2024-10-10','2024-12-02 09:42:36','2024-12-02 09:42:36'),(18,'2024-10-10','2024-10-14','2024-12-02 09:44:38','2024-12-02 09:44:38'),(19,'2024-12-01','2024-12-10','2024-12-02 11:27:00','2024-12-02 11:27:00'),(20,'2024-11-01','2024-11-11','2024-12-02 11:28:09','2024-12-02 11:28:09'),(21,'2025-01-01','2025-01-03','2024-12-03 02:30:30','2024-12-03 02:30:30'),(22,'2024-01-01','2024-01-05','2024-12-03 09:22:11','2024-12-03 09:30:50'),(23,'2025-02-01','2025-02-28','2024-12-03 09:33:08','2024-12-03 09:34:50'),(24,'2024-03-01','2024-03-20','2024-12-03 09:52:53','2024-12-03 09:54:56');
 /*!40000 ALTER TABLE `programmings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -441,7 +442,7 @@ CREATE TABLE `routepaths` (
   PRIMARY KEY (`id`),
   KEY `routepaths_vehicleroute_id_foreign` (`vehicleroute_id`),
   CONSTRAINT `routepaths_vehicleroute_id_foreign` FOREIGN KEY (`vehicleroute_id`) REFERENCES `vehicleroutes` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -450,6 +451,7 @@ CREATE TABLE `routepaths` (
 
 LOCK TABLES `routepaths` WRITE;
 /*!40000 ALTER TABLE `routepaths` DISABLE KEYS */;
+INSERT INTO `routepaths` VALUES (1,-6.776030800057156,-79.84275402806358,2,'2024-12-02 10:38:40','2024-12-02 10:38:40'),(2,-6.775418200725618,-79.84091939709779,2,'2024-12-02 10:38:49','2024-12-02 10:38:49'),(3,-6.775631278842218,-79.83878435872214,2,'2024-12-02 10:39:03','2024-12-02 10:39:03'),(4,-6.776861803123914,-79.83890774033667,2,'2024-12-02 10:39:14','2024-12-02 10:39:14'),(5,-6.776861803123914,-79.83890774033667,2,'2024-12-02 10:39:14','2024-12-02 10:39:14'),(6,-6.776514066100252,-79.83719534275112,2,'2024-12-02 10:39:29','2024-12-02 10:39:29'),(7,-6.776828355575097,-79.83720607158706,2,'2024-12-02 10:39:49','2024-12-02 10:39:49'),(8,-6.776641912691028,-79.83530706760446,2,'2024-12-02 10:40:01','2024-12-02 10:40:01'),(9,-6.776552840612489,-79.844089768153,3,'2024-12-03 11:25:01','2024-12-03 11:25:01'),(10,-6.776073415633872,-79.84278085015373,3,'2024-12-03 11:25:32','2024-12-03 11:25:32'),(11,-6.7772613233192684,-79.84280230782613,3,'2024-12-03 11:25:55','2024-12-03 11:25:55'),(12,-6.77687245700012,-79.83973386071297,3,'2024-12-03 11:26:05','2024-12-03 11:26:05'),(13,-6.776925726377422,-79.83959438584422,3,'2024-12-03 11:26:14','2024-12-03 11:26:14'),(14,-6.776840495370866,-79.83884873173785,3,'2024-12-03 11:26:25','2024-12-03 11:26:25'),(15,-6.776515552020184,-79.83721258423891,3,'2024-12-03 11:26:34','2024-12-03 11:26:34'),(16,-6.775892299406835,-79.83719649098491,3,'2024-12-03 11:26:49','2024-12-03 11:26:49'),(17,-6.776110704260425,-79.83562471650228,3,'2024-12-03 11:26:59','2024-12-03 11:26:59'),(18,-6.776947034126664,-79.83554425023154,3,'2024-12-03 11:27:25','2024-12-03 11:27:25');
 /*!40000 ALTER TABLE `routepaths` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -498,7 +500,7 @@ CREATE TABLE `routestatus` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -507,6 +509,7 @@ CREATE TABLE `routestatus` (
 
 LOCK TABLES `routestatus` WRITE;
 /*!40000 ALTER TABLE `routestatus` DISABLE KEYS */;
+INSERT INTO `routestatus` VALUES (1,'Iniciado',NULL,'2024-12-02 02:15:22','2024-12-02 02:15:22'),(2,'Finalizado',NULL,'2024-12-02 02:15:22','2024-12-02 02:15:22');
 /*!40000 ALTER TABLE `routestatus` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -664,7 +667,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('nCHpinZPkxNm3kKcPgFYAqHi5rqO3L6py7qYLQT0',NULL,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36','YTo0OntzOjY6Il90b2tlbiI7czo0MDoibnhFblNteWljSEhvcDhvdFl6T0xucnVoTUhTaWJaTFpwYW9qb2ZLYyI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9yZWdpc3RlciI7fX0=',1733080298),('uDJGhMcHuCIWh00TgPat6lYIOOVoNHktpi0cndlF',1,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiMmF2ZmVFaEc3VUZjdzg5Um5ZdlV0enI4NVU4cXJlZXhhYWdnUkVldyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9yb3V0ZXMiO31zOjM6InVybCI7YTowOnt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9',1733079961),('uPZIHmPTEvCBNkuus1zYcG1bgc1Iu32XeUlyc8ck',NULL,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36','YTozOntzOjY6Il90b2tlbiI7czo0MDoiMEp3Um5oeEdwWVYxUEdON0M2Q1Z4MUw5YXc5QkhTekN2MkowanN6TSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNDoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2VtYWlsL3ZlcmlmeSI7fX0=',1733079311);
+INSERT INTO `sessions` VALUES ('IO6sC4FnLwxdJjKgpMsdEIFRZ8EKL9oJjqClcCNd',57,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiUUNHenhEWUtJdzZEeVFoY0NBT2V2S2F5VnNNdFdCOFM4a2NmRUs3aCI7czozOiJ1cmwiO2E6MDp7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM1OiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYWNjZXNzLWRlbmllZCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjU3O30=',1733245451),('jwkCDVchIfNvrzHGQ14hBpPAiogpKUudtzS9vrG0',12,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiUVYzcUJ2TW83N1AzUDN1RHptcVdlaFkyd3VmdVlyamJ3Sm5CMTY1YyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM1OiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYWNjZXNzLWRlbmllZCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjEyO30=',1733247919),('mZJR3H6rg8kyeJDX3Ee2f7F0HeMw19ltelSSnVHm',8,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0','YTo1OntzOjY6Il90b2tlbiI7czo0MDoic3Q4MDlaRk1DWDA0eWx4SUVjZ3cxV0hTN3Z6THdUYW1tS2llOEhWNiI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM1OiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYWNjZXNzLWRlbmllZCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjg7fQ==',1733244090),('R7eVzDVkI7Ia9rF1dekUkXVmtjkI4RCKs2gQtyJD',1,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoibGJwMlpFbEVDbkZMTHBBRmFpb0tSaEV2SUZpWExZVHBhWFhSemxtcSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjMzOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYWRtaW4vdXNlcnMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=',1733247905);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -701,7 +704,7 @@ CREATE TABLE `users` (
   KEY `users_zone_id_foreign` (`zone_id`),
   CONSTRAINT `users_usertype_id_foreign` FOREIGN KEY (`usertype_id`) REFERENCES `usertypes` (`id`),
   CONSTRAINT `users_zone_id_foreign` FOREIGN KEY (`zone_id`) REFERENCES `zones` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -710,7 +713,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Roberto Montero','72390067','1999-10-23',NULL,'Florencio Mori Rocha 159','admin@gmail.com','2024-12-01 03:34:33','$2y$12$ia8rsZq71qIa4OT1CGuH6.U7Dq9gw/vca9fCB.je9OdEZiI3X2uxq',NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,'2024-11-18 22:39:11','2024-12-01 03:34:33'),(2,'Diego','99887766',NULL,NULL,NULL,'diego@gmail.com',NULL,'$2y$12$21NX9p8h7UepBeJTQ372qODkINztcXj7jm8K6Y8Mksre7xYFYSpQq',NULL,NULL,NULL,NULL,NULL,NULL,3,NULL,'2024-11-19 05:13:10','2024-11-22 08:14:08'),(3,'Carlos Lopez','77884455',NULL,NULL,NULL,'carlos@gmail.com',NULL,'$2y$12$n6nBp9czNIMFsr0CMgS5nOOh7HJTgcxNgGoEbW.wnplgXFlf8osfS',NULL,NULL,NULL,NULL,NULL,NULL,3,NULL,'2024-11-19 05:40:41','2024-11-20 04:09:32'),(4,'Diego Gamonal Veliz','72390069','2000-11-20','D72390067','Avenida Vianey','gamonal12345@gmail.com',NULL,'$2y$12$.0Hi5WL0GEaC7DOhvd8wHOuvZIONnjGSRUuh/.gLR6YCsblONesiG',NULL,NULL,NULL,NULL,NULL,NULL,2,NULL,'2024-11-19 08:15:14','2024-11-20 03:39:46'),(5,'Roberto Lopez','72390000',NULL,'A72390000','Luis Oyarce','roberto@gmail.com',NULL,'$2y$12$QJ1AsGi/c9exdl7BeekpKewYRlOKgoiAu1j5CXghyuCPEIkAZ5SeS',NULL,NULL,NULL,NULL,NULL,NULL,2,NULL,'2024-11-19 08:25:48','2024-11-20 04:05:15'),(6,'Nilton Lizarzaburu','72390060','2000-09-26','A72390060','Luis Oyarce','nilton@gmail.com',NULL,'$2y$12$B7JNFxRrvliuYMZMwzDO6OqYpUHGBgCVJxOwAJHzNeAXaGnvDMOse',NULL,NULL,NULL,NULL,NULL,NULL,3,NULL,'2024-11-19 08:31:12','2024-11-20 04:09:56'),(7,'Nick Bravo','11223344',NULL,NULL,NULL,'nickbravo@gmail.com',NULL,'$2y$12$SVhyLsRLW6/ccqhfy7ajWOiD1bBHvTvICIRmsksztx8vSBQsYYQ/K',NULL,NULL,NULL,NULL,NULL,NULL,3,NULL,'2024-11-19 10:08:33','2024-11-23 03:15:54'),(8,'Carlos L','57868922',NULL,NULL,'Corales','carlosc@gmail.com',NULL,'$2y$12$w0MMVDMEUPx/wkievBT8BuP4LK.C0q13BNXXEYgpxtKj9aVbwP8Fy',NULL,NULL,NULL,NULL,NULL,NULL,3,NULL,'2024-11-19 10:18:55','2024-11-23 04:53:11'),(9,'Robin','82112233','1990-02-01',NULL,'Florencio Mori','robin@gmail.com',NULL,'$2y$12$GZpOnxXdAezxh0GkVCHxoO74/gWjwiwHBPlWf.pFrDmifxcWrDduK',NULL,NULL,NULL,NULL,NULL,NULL,4,NULL,'2024-11-20 03:59:53','2024-12-01 04:40:51'),(10,'Santos Suxe','12455966','2000-12-10','S12455966','Pariñas','santos@hotmail.com',NULL,'$2y$12$FwZLqZOsNL419nTsBn76ruKznUWfQC6JzgX5K1ShMVAx3LylpHJKi',NULL,NULL,NULL,NULL,NULL,NULL,2,NULL,'2024-11-20 04:08:00','2024-11-20 04:08:00'),(12,'Ricardo','01010101',NULL,NULL,NULL,'ricardo@gmail.com',NULL,'$2y$12$74Cr5ZgkAIDrP0YLEujIzua.gyS8UrQPBIIR7MRMVFS5mLybWBEz.',NULL,NULL,NULL,NULL,NULL,NULL,3,NULL,'2024-11-22 12:21:44','2024-11-23 06:35:32'),(13,'Roberto Carlos',NULL,NULL,NULL,NULL,'montero@gmail.com',NULL,'$2y$12$yep8dGLjfjymkl2gFXz4mugyio4pISRKWx0drj8JzYn9SOjFwDgf.',NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,'2024-11-23 02:58:45','2024-11-23 04:51:58'),(14,'Rodrigo','22222222','2001-09-10',NULL,'Av. Victoria 201','rodrigo@gmail.com',NULL,'$2y$12$bFHGtnGDyAJLlANKTABVNen2Joc4cp5w5E/WW4Sf0VwQXcFOouTYm',NULL,NULL,NULL,NULL,NULL,NULL,3,NULL,'2024-11-23 08:46:03','2024-11-23 08:51:22'),(52,'Roberto Montero López',NULL,NULL,NULL,NULL,'adminlte@gmail.com','2024-12-01 03:57:46','$2y$12$3mZPg5gQzTFHBcagUHzzk.Ybz/fmbNU.jZ2yMNO9nipc2MBNT/C0i',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2024-12-01 03:55:17','2024-12-01 03:57:46'),(53,'Cristiano Ronaldo',NULL,NULL,NULL,NULL,'ronaldo@gmail.com','2024-12-01 23:54:41','$2y$12$ab1SyisnT9On4U1DdSi5i.Xw3AJryNYfSQn3Hxe.pmA6wOMr0eLPe',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2024-12-01 23:53:36','2024-12-01 23:54:41');
+INSERT INTO `users` VALUES (1,'Roberto Carlos Montero López','72390067','1999-10-23',NULL,'Florencio Mori Rocha','admin@gmail.com','2024-12-01 03:34:33','$2y$12$Rmaa21RN43WKHx245GQYo.qZfwwgez5HMr0t2IiyaLxx1h7Q0ao8.',NULL,NULL,NULL,NULL,NULL,'/storage/user_logo/X438ihgbPwUQB34a0w2f6vEK2fOpNFTDeGM5tbKs.jpg',1,NULL,'2024-11-18 22:39:11','2024-12-03 22:44:05'),(2,'Diego','99887766',NULL,NULL,NULL,'diego@gmail.com',NULL,'$2y$12$WYQd1MResnGoCPgTk3urAe.2o2tE0WC8hHNMRt4eDZzX9aPRqCkRi',NULL,NULL,NULL,NULL,NULL,NULL,3,NULL,'2024-11-19 05:13:10','2024-12-03 22:12:58'),(3,'Carlos Lopez','77884455',NULL,NULL,NULL,'carlos@gmail.com',NULL,'$2y$12$welCgATdJp5NBn0ZVWNG1u/gnSVlz5lUxFgZ0nR2DT52rUocytCA2',NULL,NULL,NULL,NULL,NULL,NULL,3,NULL,'2024-11-19 05:40:41','2024-12-03 22:13:09'),(4,'Diego Gamonal Veliz','72390069','2000-11-20','D72390067','Avenida Vianey','gamonal12345@gmail.com',NULL,'$2y$12$tKLtRMndEPTRBoKrJmFlouP0U5SFgzmsEaZ.PmHaFsjUz0t0CVE9e',NULL,NULL,NULL,NULL,NULL,NULL,2,NULL,'2024-11-19 08:15:14','2024-12-03 22:13:18'),(5,'Roberto Lopez','72390000',NULL,'A72390000','Luis Oyarce','roberto@gmail.com',NULL,'$2y$12$QVj2AD3Zb3nZxqZHlawMw.IEALghpHIAHd0DYgBV5gE7wPQEb6F76',NULL,NULL,NULL,NULL,NULL,NULL,2,NULL,'2024-11-19 08:25:48','2024-12-03 22:15:07'),(6,'Nilton Lizarzaburu','72390060','2000-09-26','A72390060','Luis Oyarce','nilton@gmail.com',NULL,'$2y$12$hlkJMJJSshwkYNqv9JexneUb8QmMp8s7fxvML9RS9lUtAzPBZhZ9G',NULL,NULL,NULL,NULL,NULL,NULL,3,NULL,'2024-11-19 08:31:12','2024-12-03 22:13:29'),(7,'Nick Bravo','11223344',NULL,NULL,NULL,'nickbravo@gmail.com',NULL,'$2y$12$hCd/WaQljrFROUECMYyu8.A7g7WPhYzEDLvTtFR.VMo8wCU7Dwlh.',NULL,NULL,NULL,NULL,NULL,NULL,3,NULL,'2024-11-19 10:08:33','2024-12-03 22:13:42'),(8,'Carlos L','57868922',NULL,NULL,'Corales','carlosc@gmail.com',NULL,'$2y$12$0QE28zuCPogVa17OPpEK..XsF.yVa9JEw4aw/7BH.vyxgPQgYW5B6',NULL,NULL,NULL,NULL,NULL,NULL,3,NULL,'2024-11-19 10:18:55','2024-12-03 21:41:13'),(9,'Robin','82112233','1990-02-01',NULL,'Florencio Mori','robin@gmail.com',NULL,'$2y$12$GZpOnxXdAezxh0GkVCHxoO74/gWjwiwHBPlWf.pFrDmifxcWrDduK',NULL,NULL,NULL,NULL,NULL,NULL,4,NULL,'2024-11-20 03:59:53','2024-12-01 04:40:51'),(10,'Santos Suxe','12455966','2000-12-10','S12455966','Pariñas','santos@hotmail.com',NULL,'$2y$12$voCVYq7wJdZuVM1j2yxeYefVFX3Waj.OaJ6u93YUtvIGcm95VszOe',NULL,NULL,NULL,NULL,NULL,NULL,2,NULL,'2024-11-20 04:08:00','2024-12-03 12:26:42'),(12,'Ricardo','01010101',NULL,NULL,NULL,'ricardo@gmail.com',NULL,'$2y$12$74Cr5ZgkAIDrP0YLEujIzua.gyS8UrQPBIIR7MRMVFS5mLybWBEz.',NULL,NULL,NULL,NULL,NULL,'/storage/user_logo/x1zbzDypNIhtxxHXjls7vkErGtgb46CsxM37W1sV.png',3,NULL,'2024-11-22 12:21:44','2024-12-03 22:45:04'),(13,'Roberto Carlos',NULL,NULL,NULL,NULL,'montero@gmail.com',NULL,'$2y$12$yYV/vVbYsdn6JqzMRMR1U.FDD9QEn0cEGfzyN3Lr3y12mJjwnNMHi',NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,'2024-11-23 02:58:45','2024-12-03 22:06:21'),(14,'Rodrigo','22222222','2001-09-10',NULL,'Av. Victoria 201','rodrigo@gmail.com',NULL,'$2y$12$bFHGtnGDyAJLlANKTABVNen2Joc4cp5w5E/WW4Sf0VwQXcFOouTYm',NULL,NULL,NULL,NULL,NULL,NULL,3,NULL,'2024-11-23 08:46:03','2024-11-23 08:51:22'),(52,'Roberto Montero López',NULL,NULL,NULL,NULL,'adminlte@gmail.com','2024-12-01 03:57:46','$2y$12$3mZPg5gQzTFHBcagUHzzk.Ybz/fmbNU.jZ2yMNO9nipc2MBNT/C0i',NULL,NULL,NULL,NULL,NULL,NULL,4,NULL,'2024-12-01 03:55:17','2024-12-03 22:15:34'),(53,'Cristiano Ronaldo',NULL,NULL,NULL,NULL,'ronaldo@gmail.com','2024-12-01 23:54:41','$2y$12$thzaRTJiLS7yajtbdkDl0uBrmmgXpCyXFYQRARJ8HvVBklqLh2eQC',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2024-12-01 23:53:36','2024-12-03 22:18:38'),(54,'Hector','00112244',NULL,NULL,NULL,'hector@gmail.com',NULL,'$2y$12$j.uMawVNlJwMQGK0JzzpK.OAsswrvhJG9W2lhxB27UqYz8FPCjFIi',NULL,NULL,NULL,NULL,NULL,'/storage/user_logo/9sWlEKQChU0sbJc4j1UNMy1cNQprrfJ0vxSmjGDg.jpg',3,NULL,'2024-12-03 12:49:55','2024-12-03 22:32:31'),(55,'Jesús','77881122',NULL,'J77881122','Avenida Trebol','jesus@hotmail.com',NULL,'$2y$12$9w8cb10OdFhuI.k/ULNOnuNuS9y1fdXeHaz70Xep44sQMeYb5eSpm',NULL,NULL,NULL,NULL,NULL,'/storage/user_logo/RMvOfVTYamqGyTKgWQxl0cKtMcGOnAtY9uMz6iC2.jpg',2,NULL,'2024-12-03 13:01:34','2024-12-03 22:34:26'),(57,'Jose','74125836',NULL,NULL,'Avenida','jose@gmail.com',NULL,'$2y$12$7ZHyvhb/UTDJw6vavDxilOEJJRqyI5e6wFniaZU1WI4ufXSRXjD2m',NULL,NULL,NULL,NULL,NULL,'/storage/user_logo/AxCtwq0QayGGBZUIE75CRVz6U9j1OZdgnxlU0ZMA.jpg',4,NULL,'2024-12-03 13:31:53','2024-12-03 13:31:53');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -863,7 +866,7 @@ CREATE TABLE `vehicleroutes` (
   CONSTRAINT `vehicleroutes_routestatus_id_foreign` FOREIGN KEY (`routestatus_id`) REFERENCES `routestatus` (`id`),
   CONSTRAINT `vehicleroutes_schedule_id_foreign` FOREIGN KEY (`schedule_id`) REFERENCES `schedules` (`id`),
   CONSTRAINT `vehicleroutes_vehicle_id_foreign` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicles` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=162 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -872,6 +875,7 @@ CREATE TABLE `vehicleroutes` (
 
 LOCK TABLES `vehicleroutes` WRITE;
 /*!40000 ALTER TABLE `vehicleroutes` DISABLE KEYS */;
+INSERT INTO `vehicleroutes` VALUES (2,'2024-12-01','12:00:00',NULL,1,1,1,1,4,'2024-12-02 02:16:06','2024-12-03 08:05:36'),(3,'2024-12-02','12:00:00',NULL,1,1,1,1,4,'2024-12-02 02:16:06','2024-12-03 08:05:36'),(4,'2024-12-03','12:00:00',NULL,1,1,1,1,4,'2024-12-02 02:16:06','2024-12-03 08:05:36'),(5,'2024-12-04','12:00:00',NULL,1,1,1,1,4,'2024-12-02 02:16:06','2024-12-03 08:05:36'),(6,'2024-12-05','12:00:00',NULL,1,1,1,1,4,'2024-12-02 02:16:06','2024-12-03 08:05:36'),(7,'2024-12-06','12:00:00',NULL,1,1,1,1,4,'2024-12-02 02:16:06','2024-12-03 08:05:36'),(8,'2024-12-06','08:00:00','',3,1,1,1,5,'2024-12-02 02:19:38','2024-12-02 02:19:38'),(9,'2024-12-07','08:00:00','',3,1,1,1,5,'2024-12-02 02:19:38','2024-12-02 02:19:38'),(10,'2024-12-08','08:00:00','',3,1,1,1,5,'2024-12-02 02:19:38','2024-12-02 02:19:38'),(11,'2024-12-09','10:00:00','',1,1,1,1,6,'2024-12-02 05:09:42','2024-12-02 05:09:42'),(12,'2024-12-10','10:00:00','',1,1,1,1,6,'2024-12-02 05:09:42','2024-12-02 05:09:42'),(13,'2024-12-11','10:00:00','',1,1,1,1,6,'2024-12-02 05:09:42','2024-12-02 05:09:42'),(14,'2024-12-12','10:00:00','',1,1,1,1,6,'2024-12-02 05:09:42','2024-12-02 05:09:42'),(15,'2024-12-13','10:00:00','',1,1,1,1,6,'2024-12-02 05:09:42','2024-12-02 05:09:42'),(16,'2024-12-14','15:00:00','',4,1,2,1,7,'2024-12-02 05:12:06','2024-12-02 05:12:06'),(17,'2024-12-15','15:00:00','',4,1,2,1,7,'2024-12-02 05:12:06','2024-12-02 05:12:06'),(18,'2024-11-25','08:00:00','',1,1,1,1,8,'2024-12-02 05:16:37','2024-12-02 05:16:37'),(19,'2024-11-26','08:00:00','',1,1,1,1,8,'2024-12-02 05:16:37','2024-12-02 05:16:37'),(20,'2024-11-27','08:00:00','',1,1,1,1,8,'2024-12-02 05:16:37','2024-12-02 05:16:37'),(21,'2024-11-28','08:00:00','',1,1,1,1,8,'2024-12-02 05:16:37','2024-12-02 05:16:37'),(22,'2024-11-29','08:00:00','',1,1,1,1,8,'2024-12-02 05:16:37','2024-12-02 05:16:37'),(23,'2024-11-30','16:00:00','',3,1,2,1,9,'2024-12-02 05:32:11','2024-12-02 05:32:11'),(24,'2024-12-01','16:00:00','',3,1,2,1,9,'2024-12-02 05:32:11','2024-12-02 05:32:11'),(25,'2024-11-23','20:00:00','SE CAMBIO PORQUE VEHICULO 03 ESTABA EN MANTENIMIENTO',1,1,3,2,10,'2024-12-02 05:37:15','2024-12-02 05:47:59'),(26,'2024-11-25','15:00:00','prueba',4,1,2,2,10,'2024-12-02 05:37:15','2024-12-02 11:15:27'),(27,'2024-11-25','08:00:00','',5,1,1,1,11,'2024-12-02 08:07:00','2024-12-02 08:07:00'),(28,'2024-11-01','15:00:00','',1,1,2,1,12,'2024-12-02 08:44:46','2024-12-02 08:44:46'),(29,'2024-11-02','15:00:00','',1,1,2,1,12,'2024-12-02 08:44:46','2024-12-02 08:44:46'),(30,'2024-11-04','10:00:00','',1,1,1,1,13,'2024-12-02 08:46:55','2024-12-02 08:46:55'),(31,'2024-11-05','10:00:00','',1,1,1,1,13,'2024-12-02 08:46:55','2024-12-02 08:46:55'),(32,'2024-11-06','10:00:00','',1,1,1,1,13,'2024-12-02 08:46:55','2024-12-02 08:46:55'),(33,'2024-11-07','10:00:00','',1,1,1,1,13,'2024-12-02 08:46:55','2024-12-02 08:46:55'),(34,'2024-11-08','10:00:00','',1,1,1,1,13,'2024-12-02 08:46:55','2024-12-02 08:46:55'),(35,'2024-11-11','10:00:00','',1,1,1,1,13,'2024-12-02 08:46:55','2024-12-02 08:46:55'),(36,'2024-10-18','15:00:00','',1,1,2,1,14,'2024-12-02 08:59:38','2024-12-02 08:59:38'),(37,'2024-10-21','15:00:00','',1,1,2,1,14,'2024-12-02 08:59:38','2024-12-02 08:59:38'),(38,'2024-10-22','15:00:00','',1,1,2,1,14,'2024-12-02 08:59:38','2024-12-02 08:59:38'),(39,'2024-10-23','15:00:00','',1,1,2,1,14,'2024-12-02 08:59:38','2024-12-02 08:59:38'),(40,'2024-10-24','15:00:00','',1,1,2,1,14,'2024-12-02 08:59:38','2024-12-02 08:59:38'),(41,'2024-10-25','15:00:00','',1,1,2,1,14,'2024-12-02 08:59:38','2024-12-02 08:59:38'),(42,'2024-10-28','15:00:00','',1,1,2,1,14,'2024-12-02 08:59:38','2024-12-02 08:59:38'),(43,'2024-01-01','20:00:00','',1,1,3,1,16,'2024-12-02 09:34:06','2024-12-02 09:34:06'),(44,'2024-01-02','20:00:00','',1,1,3,1,16,'2024-12-02 09:34:06','2024-12-02 09:34:06'),(45,'2024-01-03','20:00:00','',1,1,3,1,16,'2024-12-02 09:34:06','2024-12-02 09:34:06'),(46,'2024-01-04','20:00:00','',1,1,3,1,16,'2024-12-02 09:34:06','2024-12-02 09:34:06'),(47,'2024-01-05','20:00:00','',1,1,3,1,16,'2024-12-02 09:34:06','2024-12-02 09:34:06'),(48,'2024-01-08','20:00:00','',1,1,3,1,16,'2024-12-02 09:34:06','2024-12-02 09:34:06'),(49,'2024-10-01','15:00:00','',4,1,2,1,17,'2024-12-02 09:42:36','2024-12-02 09:42:36'),(50,'2024-10-03','15:00:00','',4,1,2,1,17,'2024-12-02 09:42:36','2024-12-02 09:42:36'),(51,'2024-10-05','15:00:00','',4,1,2,1,17,'2024-12-02 09:42:36','2024-12-02 09:42:36'),(52,'2024-10-07','15:00:00','',4,1,2,1,17,'2024-12-02 09:42:36','2024-12-02 09:42:36'),(53,'2024-10-09','15:00:00','',4,1,2,1,17,'2024-12-02 09:42:36','2024-12-02 09:42:36'),(54,'2024-10-10','15:00:00','',4,1,2,1,18,'2024-12-02 09:44:38','2024-12-02 09:44:38'),(55,'2024-10-12','15:00:00','',4,1,2,1,18,'2024-12-02 09:44:38','2024-12-02 09:44:38'),(56,'2024-10-14','15:00:00','',4,1,2,1,18,'2024-12-02 09:44:38','2024-12-02 09:44:38'),(57,'2024-12-01','20:00:00',NULL,7,1,1,1,19,'2024-12-02 11:27:00','2024-12-03 09:52:08'),(58,'2024-12-03','20:00:00',NULL,7,1,1,1,19,'2024-12-02 11:27:00','2024-12-03 09:52:08'),(59,'2024-12-05','20:00:00',NULL,7,1,1,1,19,'2024-12-02 11:27:00','2024-12-03 09:52:08'),(60,'2024-12-07','20:00:00',NULL,7,1,1,1,19,'2024-12-02 11:27:00','2024-12-03 09:52:08'),(61,'2024-12-09','20:00:00',NULL,7,1,1,1,19,'2024-12-02 11:27:00','2024-12-03 09:52:08'),(62,'2024-11-01','09:00:00',NULL,1,1,1,1,20,'2024-12-02 11:28:09','2024-12-03 07:59:01'),(63,'2024-11-04','09:00:00',NULL,1,1,1,1,20,'2024-12-02 11:28:09','2024-12-03 07:59:01'),(64,'2024-11-05','09:00:00',NULL,1,1,1,1,20,'2024-12-02 11:28:09','2024-12-03 07:59:01'),(65,'2024-11-06','09:00:00',NULL,1,1,1,1,20,'2024-12-02 11:28:09','2024-12-03 07:59:01'),(66,'2024-11-07','09:00:00',NULL,1,1,1,1,20,'2024-12-02 11:28:09','2024-12-03 07:59:01'),(67,'2024-11-08','09:00:00',NULL,1,1,1,1,20,'2024-12-02 11:28:09','2024-12-03 07:59:01'),(68,'2024-11-11','09:00:00',NULL,1,1,1,1,20,'2024-12-02 11:28:09','2024-12-03 07:59:01'),(69,'2025-01-01','20:00:00',NULL,1,1,1,2,21,'2024-12-03 02:30:30','2024-12-03 07:55:48'),(70,'2025-01-02','20:00:00',NULL,1,1,1,2,21,'2024-12-03 02:30:30','2024-12-03 07:55:48'),(71,'2025-01-03','20:00:00',NULL,1,1,1,2,21,'2024-12-03 02:30:30','2024-12-03 07:55:48'),(72,'2025-01-04','20:00:00',NULL,1,1,1,2,21,'2024-12-03 02:43:49','2024-12-03 07:55:48'),(73,'2025-01-05','20:00:00',NULL,1,1,1,2,21,'2024-12-03 02:43:49','2024-12-03 07:55:48'),(74,'2024-11-02','09:00:00',NULL,1,1,1,1,20,'2024-12-03 02:59:13','2024-12-03 07:59:01'),(75,'2024-11-03','09:00:00',NULL,1,1,1,1,20,'2024-12-03 02:59:13','2024-12-03 07:59:01'),(76,'2024-11-09','09:00:00',NULL,1,1,1,1,20,'2024-12-03 02:59:13','2024-12-03 07:59:01'),(77,'2024-11-10','09:00:00',NULL,1,1,1,1,20,'2024-12-03 02:59:13','2024-12-03 07:59:01'),(78,'2024-12-02','20:00:00',NULL,7,1,1,1,19,'2024-12-03 03:04:03','2024-12-03 09:52:08'),(79,'2024-12-04','20:00:00',NULL,7,1,1,1,19,'2024-12-03 03:04:03','2024-12-03 09:52:08'),(80,'2024-12-06','20:00:00',NULL,7,1,1,1,19,'2024-12-03 03:04:03','2024-12-03 09:52:08'),(81,'2024-12-08','20:00:00',NULL,7,1,1,1,19,'2024-12-03 03:04:03','2024-12-03 09:52:08'),(82,'2024-12-10','20:00:00',NULL,7,1,1,1,19,'2024-12-03 03:04:03','2024-12-03 09:52:08'),(83,'2025-01-06','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(84,'2025-01-07','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(85,'2025-01-08','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(86,'2025-01-09','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(87,'2025-01-10','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(88,'2025-01-11','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(89,'2025-01-12','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(90,'2025-01-13','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(91,'2025-01-14','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(92,'2025-01-15','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(93,'2025-01-16','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(94,'2025-01-17','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(95,'2025-01-18','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(96,'2025-01-19','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(97,'2025-01-20','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(98,'2025-01-21','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(99,'2025-01-22','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(100,'2025-01-23','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(101,'2025-01-24','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(102,'2025-01-25','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(103,'2025-01-26','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(104,'2025-01-27','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(105,'2025-01-28','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(106,'2025-01-29','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(107,'2025-01-30','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(108,'2025-01-31','20:00:00',NULL,1,1,1,2,21,'2024-12-03 03:05:45','2024-12-03 07:55:48'),(109,'2024-01-01','20:00:00','',7,1,3,1,22,'2024-12-03 09:22:11','2024-12-03 09:22:11'),(110,'2024-01-02','20:00:00','',7,1,3,1,22,'2024-12-03 09:22:11','2024-12-03 09:22:11'),(111,'2024-01-03','20:00:00','',7,1,3,1,22,'2024-12-03 09:22:11','2024-12-03 09:22:11'),(112,'2024-01-04','20:00:00','',7,1,3,1,22,'2024-12-03 09:30:50','2024-12-03 09:30:50'),(113,'2024-01-05','20:00:00','',7,1,3,1,22,'2024-12-03 09:30:50','2024-12-03 09:30:50'),(114,'2025-02-03','15:00:00','',7,1,2,1,23,'2024-12-03 09:33:08','2024-12-03 09:33:08'),(115,'2025-02-04','15:00:00','',7,1,2,1,23,'2024-12-03 09:33:08','2024-12-03 09:33:08'),(116,'2025-02-05','15:00:00','',7,1,2,1,23,'2024-12-03 09:33:08','2024-12-03 09:33:08'),(117,'2025-02-06','15:00:00','',7,1,2,1,23,'2024-12-03 09:33:08','2024-12-03 09:33:08'),(118,'2025-02-07','15:00:00','',7,1,2,1,23,'2024-12-03 09:33:08','2024-12-03 09:33:08'),(119,'2025-02-10','15:00:00','',7,1,2,1,23,'2024-12-03 09:33:08','2024-12-03 09:33:08'),(120,'2025-02-11','15:00:00','',7,1,2,1,23,'2024-12-03 09:33:08','2024-12-03 09:33:08'),(121,'2025-02-12','15:00:00','',7,1,2,1,23,'2024-12-03 09:33:08','2024-12-03 09:33:08'),(122,'2025-02-13','15:00:00','',7,1,2,1,23,'2024-12-03 09:33:08','2024-12-03 09:33:08'),(123,'2025-02-14','15:00:00','',7,1,2,1,23,'2024-12-03 09:33:08','2024-12-03 09:33:08'),(124,'2025-02-01','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(125,'2025-02-02','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(126,'2025-02-08','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(127,'2025-02-09','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(128,'2025-02-15','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(129,'2025-02-16','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(130,'2025-02-17','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(131,'2025-02-18','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(132,'2025-02-19','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(133,'2025-02-20','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(134,'2025-02-21','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(135,'2025-02-22','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(136,'2025-02-23','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(137,'2025-02-24','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(138,'2025-02-25','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(139,'2025-02-26','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(140,'2025-02-27','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(141,'2025-02-28','15:00:00','',7,1,2,1,23,'2024-12-03 09:34:50','2024-12-03 09:34:50'),(142,'2024-03-01','15:00:00','',1,1,2,1,24,'2024-12-03 09:52:53','2024-12-03 09:52:53'),(143,'2024-03-03','15:00:00','',1,1,2,1,24,'2024-12-03 09:52:53','2024-12-03 09:52:53'),(144,'2024-03-05','15:00:00','',1,1,2,1,24,'2024-12-03 09:52:53','2024-12-03 09:52:53'),(145,'2024-03-07','15:00:00','',1,1,2,1,24,'2024-12-03 09:52:53','2024-12-03 09:52:53'),(146,'2024-03-09','15:00:00','',1,1,2,1,24,'2024-12-03 09:52:53','2024-12-03 09:52:53'),(147,'2024-03-11','15:00:00','',1,1,2,1,24,'2024-12-03 09:52:53','2024-12-03 09:52:53'),(148,'2024-03-13','15:00:00','',1,1,2,1,24,'2024-12-03 09:52:53','2024-12-03 09:52:53'),(149,'2024-03-15','15:00:00','',1,1,2,1,24,'2024-12-03 09:52:53','2024-12-03 09:52:53'),(150,'2024-03-02','15:00:00','',1,1,2,1,24,'2024-12-03 09:53:53','2024-12-03 09:53:53'),(151,'2024-03-04','15:00:00','',1,1,2,1,24,'2024-12-03 09:53:53','2024-12-03 09:53:53'),(152,'2024-03-06','15:00:00','',1,1,2,1,24,'2024-12-03 09:53:53','2024-12-03 09:53:53'),(153,'2024-03-08','15:00:00','',1,1,2,1,24,'2024-12-03 09:53:53','2024-12-03 09:53:53'),(154,'2024-03-10','15:00:00','',1,1,2,1,24,'2024-12-03 09:53:53','2024-12-03 09:53:53'),(155,'2024-03-12','15:00:00','',1,1,2,1,24,'2024-12-03 09:53:53','2024-12-03 09:53:53'),(156,'2024-03-14','15:00:00','',1,1,2,1,24,'2024-12-03 09:53:53','2024-12-03 09:53:53'),(157,'2024-03-16','15:00:00','',1,1,2,1,24,'2024-12-03 09:54:56','2024-12-03 09:54:56'),(158,'2024-03-17','15:00:00','',1,1,2,1,24,'2024-12-03 09:54:56','2024-12-03 09:54:56'),(159,'2024-03-18','15:00:00','',1,1,2,1,24,'2024-12-03 09:54:56','2024-12-03 09:54:56'),(160,'2024-03-19','15:00:00','',1,1,2,1,24,'2024-12-03 09:54:56','2024-12-03 09:54:56'),(161,'2024-03-20','15:00:00','',1,1,2,1,24,'2024-12-03 09:54:56','2024-12-03 09:54:56');
 /*!40000 ALTER TABLE `vehicleroutes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1103,6 +1107,87 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_programming` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_programming`()
+begin
+	select p.id as id, p.startdate as startdate, p.lastdate as lastdate, v.name as vehicle, r.name as route, 
+	vr.time_route as time_route, s.name as sname, rs.name as status, vr.description as description
+	from vehicleroutes vr
+	inner join routes r on vr.route_id=r.id
+	inner join vehicles v on vr.vehicle_id=v.id
+	inner join programmings p on vr.programming_id=p.id 
+	inner join routestatus rs on vr.routestatus_id=rs.id
+	inner join schedules s on vr.schedule_id = s.id
+	group by p.id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_programmingday` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_programmingday`(IN _id BIGINT)
+begin
+	select vr.id as id, vr.date_route as date_route , v.name as vehicle, r.name as route, 
+	vr.time_route as time_route, s.name as sname, rs.name as status, vr.description as description
+	from vehicleroutes vr
+	inner join routes r on vr.route_id=r.id
+	inner join vehicles v on vr.vehicle_id=v.id
+	inner join programmings p on vr.programming_id=p.id 
+	inner join routestatus rs on vr.routestatus_id=rs.id
+	inner join schedules s on vr.schedule_id = s.id
+	where p.id = _id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_programmingsearch` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_programmingsearch`(IN _vehicle_id INT, IN _route_id INT, IN _startdate DATE, IN _lastdate DATE)
+begin
+	select vr.id as id, vr.date_route as date_route, v.name as vehicle, r.name as route, 
+	vr.time_route as time_route, s.name as sname, rs.name as status, vr.description as description
+	from vehicleroutes vr
+	inner join routes r on vr.route_id=r.id
+	inner join vehicles v on vr.vehicle_id=v.id
+	inner join programmings p on vr.programming_id=p.id 
+	inner join routestatus rs on vr.routestatus_id=rs.id
+	inner join schedules s on vr.schedule_id = s.id 
+	WHERE vr.vehicle_id = _vehicle_id AND vr.route_id = _route_id AND vr.date_route BETWEEN _startdate  AND _lastdate;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `sp_routezones` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1170,6 +1255,69 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_searchmassedition` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_searchmassedition`(IN _vehicle_id INT, IN _route_id INT, IN _startdate DATE, IN _lastdate DATE)
+begin
+	select vr.id as id, p.startdate as startdate, p.lastdate as lastdate, v.name as vehicle, r.name as route, 
+	vr.time_route as time_route, s.name as sname, rs.name as status, vr.description as description
+	from vehicleroutes vr
+	inner join routes r on vr.route_id=r.id
+	inner join vehicles v on vr.vehicle_id=v.id
+	inner join programmings p on vr.programming_id=p.id 
+	inner join routestatus rs on vr.routestatus_id=rs.id
+	inner join schedules s on vr.schedule_id = s.id 
+	where vr.vehicle_id= _vehicle_id and vr.route_id= _route_id and vr.date_route between _startdate and _lastdate
+	group by p.startdate = _startdate and p.lastdate = _lastdate;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_search_if_exist` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_search_if_exist`(IN p_vehicle_id INT,
+    IN p_route_id INT,
+    IN p_startdate DATE,
+    IN p_lastdate DATE,
+    OUT p_exist INT)
+begin
+	-- Contar las filas que coincidan con los parámetros
+    SELECT COUNT(*) INTO p_exist
+    FROM vehicleroutes
+    WHERE vehicle_id = p_vehicle_id
+    AND route_id = p_route_id
+    AND date_route BETWEEN p_startdate AND p_lastdate;
+
+    -- Si existen registros, p_exist será 1, de lo contrario será 0
+    IF p_exist > 0 THEN
+        SET p_exist = 1;
+    ELSE
+        SET p_exist = 0;
+    END IF;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `sp_users` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1182,7 +1330,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_users`()
 begin
-	SELECT u.id as id, u.name as name, u.dni as dni,
+	SELECT u.id as id, u.name as name, u.dni as dni, u.profile_photo_path as logo,
 	u.license as license, u.email as email, u2.name AS tname
 	FROM users u LEFT JOIN usertypes u2 ON u.usertype_id = u2.id;
 END ;;
@@ -1276,4 +1424,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-01 14:13:18
+-- Dump completed on 2024-12-03 12:46:38

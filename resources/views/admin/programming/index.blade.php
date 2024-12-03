@@ -23,7 +23,6 @@
                             <th>HORARIO</th>
                             <th>BUSCAR</th>
                             <th>PROGRAMAR</th>
-                            <th>EDITAR</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,12 +71,6 @@
                                     </button>
                                 </div>
                             </td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Edición Masiva">
-                                    <button type="button" class="btn btn-secondary btn-sm" onclick="massEdition()">
-                                        <i class="fas fa-edit"></i></button>
-                                </div>
-                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -95,7 +88,26 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="">Editar programacion</h5>
+                    <h5 class="modal-title" id="">Editar programación</h5>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="formModalMass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="">Editar programación masiva</h5>
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -274,58 +286,5 @@
                 }
             });
         });
-
-        function massEdition() {
-            $.ajax({
-                url: '{{ route('admin.programming.massEdit') }}',
-                type: 'GET',
-                data: {
-                    vehicle_id: $("#vehicle_id").val(),
-                    route_id: $("#route_id").val(),
-                    startdate: $("#startdate").val(),
-                    lastdate: $("#lastdate").val()
-                },
-                success: function(response) {
-                    Swal.fire({
-                        title: 'Cargando...',
-                        text: 'Obteniendo programación, por favor espere.',
-                        allowOutsideClick: false,
-                        didOpen: () => {
-                            Swal.showLoading();
-                        }
-                    });
-
-                    setTimeout(function() {
-                        Swal.close();
-
-                        // Limpiar el contenido previo del modal
-                        $('#formModal .modal-body').empty();
-
-                        // Inyectar los datos recibidos en el modal
-                        response.programminglists.forEach(function(programminglist) {
-                            var html = `
-                        <div class="form-row">
-                            <div class="form-group col-6">
-                                <label for="routestatus_id_${programminglist.id}">Estado</label>
-                                <select name="routestatus_id[${programminglist.id}]" class="form-control" id="routestatus_id_${programminglist.id}" required>
-                                    <option value="${programminglist.status}">${programminglist.status}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- Agregar el resto de los campos aquí -->
-                    `;
-                            $('#formModal .modal-body').append(html);
-                        });
-
-                        // Mostrar el modal
-                        $('#formModal').modal('show');
-                    }, 800);
-                },
-                error: function(xhr, status, error) {
-                    var response = xhr.responseJSON;
-                    Swal.fire('Error', response.message, 'error');
-                }
-            });
-        }
     </script>
 @stop

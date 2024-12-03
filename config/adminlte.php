@@ -137,8 +137,8 @@ return [
     'usermenu_enabled' => true,
     'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => false,
-    'usermenu_desc' => false,
+    'usermenu_image' => true, //modificacion
+    'usermenu_desc' => true, //modificacion
     'usermenu_profile_url' => false,
 
     /*
@@ -412,6 +412,11 @@ return [
                     'text' => 'Programación de Rutas',
                     'route' => 'admin.programming.index',
                     'icon' => 'fas fa-calendar-alt',
+                ],
+                [
+                    'text' => 'Actualización Masiva',
+                    'route' => 'admin.programmingmassive.index',
+                    'icon' => 'fas fa-edit',
                 ],
             ]
         ],

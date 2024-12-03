@@ -19,8 +19,6 @@ Route::get('/', function () {
     return redirect('admin');
 });
 
-Route::get('', [AdminController::class, 'index'])->middleware('auth:sanctum');
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -30,5 +28,19 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::middleware(['checkAdmin'])->group(function () {
+    Route::get('', [AdminController::class, 'index'])->middleware('auth:sanctum');
+});
+
+// Ruta de acceso denegado para usuarios no autorizados
+Route::get('/access-denied', function () {
+    return view('access-denied');
+})->name('accessDenied');
+
+Route::get('/new-profile', function () {
+    return view('new-Profile');
+})->name('newProfile');
+
 
 //Route::get('searchprogramming', [ProgrammingsController::class, 'searchprogramming'])->name('admin.searchprogramming');

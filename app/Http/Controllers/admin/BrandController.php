@@ -115,9 +115,6 @@ class BrandController extends Controller
         } catch (\Throwable $th) {
             return response()->json(['message' => 'Error en el registro: ' . $th->getMessage()], 500);
         }
-
-        /*return redirect()->route('admin.brands.index')
-            ->with('success', 'Marca registrada correctamente');*/
     }
 
     /**
