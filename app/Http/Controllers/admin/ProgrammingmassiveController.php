@@ -91,6 +91,11 @@ class ProgrammingmassiveController extends Controller
 
         $programmingdays = DB::select('CALL sp_programmingday(' . $id . ')');
 
+        $programmingdays = collect($programmingdays)->map(function ($programmingday) {
+            $programmingday->date_route = Carbon::parse($programmingday->date_route)->format('d/m/Y');
+            return $programmingday;
+        });
+        
         if ($request->ajax()) {
             return DataTables::of($programmingdays)
                 ->addColumn('actions', function ($programmingday) {
